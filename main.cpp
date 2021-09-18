@@ -1,15 +1,10 @@
 #include <iostream>
-#include <cstdlib>
-#include <ctime>
 #include <string>
 
 #include "Location.h"
-
+#include "Algorithm.h"
 
 extern "C" int main() {
-
-    std::srand((unsigned int) std::time(nullptr));
-    int random = rand();
 
     hillClimb::Location basePoint = hillClimb::Location::WithRandomPosition("Base point");
 
@@ -21,5 +16,20 @@ extern "C" int main() {
         path.push_back(hillClimb::Location::WithRandomPosition(std::to_string(i)));
     }
 
+    vector<hillClimb::Location> result = hillClimb::Algorithm().Solve(basePoint, path);
+
+
+    for (int x = 0; x < 100; x++) {
+        for (int y = 0; y < 100; y++) {
+            int value = 0;
+            for (int i = 0; i < path.size(); i++) {
+                if (path[i].Position().Y() == y && path[i].Position().X() == x) {
+                    value = i;
+                }
+            }
+            std::cout << value;
+        }
+        cout << endl;
+    }
     return 0;
 }

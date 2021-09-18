@@ -13,8 +13,6 @@ namespace hillClimb {
     Location::Location(Point position, string label) : position_(position.X(), position.Y()) {
         position_ = position;
         label_ = label;
-
-
     }
 
     Location Location::WithRandomPosition(string label) {
