@@ -3,6 +3,7 @@
 //
 
 #include "Point.h"
+
 namespace hillClimb {
 
     Point::Point(int x, int y) {

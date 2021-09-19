@@ -12,7 +12,9 @@ using namespace std;
 namespace hillClimb {
     class Algorithm {
     public:
-        vector<hillClimb::Location> Solve(hillClimb::Location basePoint, std::vector<hillClimb::Location> locations);
+        static vector<hillClimb::Location> Solve(hillClimb::Location basePoint, std::vector<hillClimb::Location> locations);
+    private:
+        static vector<hillClimb::Location> Shuffle(vector<hillClimb::Location> locations);
     };
 }
 

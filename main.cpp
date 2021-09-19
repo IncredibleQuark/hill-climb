@@ -3,6 +3,7 @@
 
 #include "Location.h"
 #include "Algorithm.h"
+#include "Helper.h"
 
 extern "C" int main() {
 
@@ -16,7 +17,11 @@ extern "C" int main() {
         path.push_back(hillClimb::Location::WithRandomPosition(std::to_string(i)));
     }
 
-    vector<hillClimb::Location> result = hillClimb::Algorithm().Solve(basePoint, path);
+    double initialDistance = hillClimb::Helper::Evaluate(basePoint, path);
+
+    std::cout << "Initial distance: " << initialDistance << endl;
+
+    vector<hillClimb::Location> result = hillClimb::Algorithm::Solve(basePoint, path);
 
 
     for (int x = 0; x < 100; x++) {
