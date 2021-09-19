@@ -33,4 +33,26 @@ namespace hillClimb {
 
         return locations;
     }
+
+    void Helper::Visualize(vector<hillClimb::Location> path) {
+
+        std::cout << "Visualize path: " << std::endl;
+
+        for (int x = 0; x < 100; x++) {
+            for (int y = 0; y < 100; y++) {
+                int value = 0;
+                for (int i = 0; i < path.size(); i++) {
+                    if (path[i].Position().Y() == y && path[i].Position().X() == x) {
+                        value = i;
+                    }
+                }
+                if (value != 0) {
+                    std::cout << value;
+                } else {
+                    std::cout << "-";
+                }
+            }
+            cout << endl;
+        }
+    }
 }

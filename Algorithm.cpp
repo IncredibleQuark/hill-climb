@@ -57,12 +57,12 @@ namespace hillClimb {
         std::cout << "Finished after " << iteration << " iterations" << std::endl;
         std::cout << "Iterations without progress " << iterationsWithoutProgress << std::endl;
 
-        return locations;
+        return bestPath;
     }
 
     vector<Location> Algorithm::Shuffle(vector<hillClimb::Location> locations) {
 
-        for (int i = locations.size() - 1; i > 1; i--) {
+        for (unsigned int i = locations.size() - 1; i > 1; i--) {
             int j = rand() % i + 1;
 
             if ( i != j) {

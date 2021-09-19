@@ -15,6 +15,7 @@ namespace hillClimb {
         double static DistanceTo(hillClimb::Point pointA, hillClimb::Point pointB);
         double static Evaluate(hillClimb::Location basePoint, std::vector<hillClimb::Location> locations);
         vector<hillClimb::Location> static Exchange(vector<hillClimb::Location>, int index1, int index2);
+        void static Visualize(vector<hillClimb::Location> path);
 
     };
 }

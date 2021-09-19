@@ -10,31 +10,21 @@ extern "C" int main() {
     hillClimb::Location basePoint = hillClimb::Location::WithRandomPosition("Base point");
 
     std::cout << basePoint.Label() << std::endl;
-    vector<hillClimb::Location> path;
-    path.reserve(30);
+    vector<hillClimb::Location> initialPath;
+    initialPath.reserve(30);
 
     for (int i = 0; i < 30; i++) {
-        path.push_back(hillClimb::Location::WithRandomPosition(std::to_string(i)));
+        initialPath.push_back(hillClimb::Location::WithRandomPosition(std::to_string(i)));
     }
 
-    double initialDistance = hillClimb::Helper::Evaluate(basePoint, path);
+    double initialDistance = hillClimb::Helper::Evaluate(basePoint, initialPath);
 
     std::cout << "Initial distance: " << initialDistance << endl;
 
-    vector<hillClimb::Location> result = hillClimb::Algorithm::Solve(basePoint, path);
+    vector<hillClimb::Location> resultPath = hillClimb::Algorithm::Solve(basePoint, initialPath);
 
+    hillClimb::Helper::Visualize(initialPath);
+    hillClimb::Helper::Visualize(resultPath);
 
-    for (int x = 0; x < 100; x++) {
-        for (int y = 0; y < 100; y++) {
-            int value = 0;
-            for (int i = 0; i < path.size(); i++) {
-                if (path[i].Position().Y() == y && path[i].Position().X() == x) {
-                    value = i;
-                }
-            }
-            std::cout << value;
-        }
-        cout << endl;
-    }
     return 0;
 }
